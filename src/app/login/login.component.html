@@ -1,0 +1,25 @@
+<h3 class="text-center">Login Page</h3>
+<div class="alert alert-danger" *ngIf="error$ | async">
+  Login fail
+</div>
+<div class="alert alert-success" *ngIf="success$ | async">
+  Login success
+</div>
+<div class="login-form">
+  <form (submit)="submit()" [formGroup]="loginForm">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input class="form-control" id="username" placeholder="Enter email" formControlName="email">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
+    </div>
+    <div class="text-center">
+      <div class="spinner-border" role="status" *ngIf="loading$ | async">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="loading$ | async">Login</button>
+  </form>
+</div>
