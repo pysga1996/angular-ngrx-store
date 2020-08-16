@@ -24,7 +24,8 @@ export class UserEffects {
           this.router.navigate([returnUrl]);
           return new fromUser.LoginSuccess(user, returnUrl);
         }),
-        catchError(e => {
+        catchError(error => {
+          console.log(error);
           return of(new fromUser.LoginFail());
         })
       );
