@@ -32,7 +32,7 @@ export class UserEffects {
     })
   );
 
-  @Effect({dispatch: false})
+  @Effect({dispatch: false, useEffectsErrorHandler: true})
   logout$ = this.actions$.pipe(
     ofType<fromUser.Logout>(fromUser.EUserActions.LOGOUT),
     tap(() => {
